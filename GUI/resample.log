@@ -1,0 +1,87 @@
+******************************************************************************
+
+MODIS Mosaic Tool (v4.0 February 2008)
+Start Time:  Fri Sep 10 12:45:34 2010
+
+------------------------------------------------------------------
+
+Input filenames (7):
+   D:\\Demo\\LST_NDVI\\LST\\MOD11A2.A2000065.h09v04.005.2007176162644.hdf
+   D:\\Demo\\LST_NDVI\\LST\\MOD11A2.A2000065.h09v05.005.2007176162724.hdf
+   D:\\Demo\\LST_NDVI\\LST\\MOD11A2.A2000065.h10v04.005.2007176162721.hdf
+   D:\\Demo\\LST_NDVI\\LST\\MOD11A2.A2000065.h10v05.005.2007176162722.hdf
+   D:\\Demo\\LST_NDVI\\LST\\MOD11A2.A2000065.h11v04.005.2007176162721.hdf
+   D:\\Demo\\LST_NDVI\\LST\\MOD11A2.A2000065.h11v05.005.2007176162603.hdf
+   D:\\Demo\\LST_NDVI\\LST\\MOD11A2.A2000065.h12v04.005.2007176162609.hdf
+Output filename: D:\\Demo\\LST_NDVI\\LST_TIFF\\temphdf.hdf
+Mosaic Array:
+   file[ 0]  file[ 2]  file[ 4]  file[ 6]
+   file[ 1]  file[ 3]  file[ 5]  file[-9]
+
+Mosaic : processing band LST_Day_1km
+
+Mosaic : processing band QC_Day
+
+Mosaic : processing band Day_view_time
+
+Mosaic : processing band Day_view_angl
+
+Mosaic : processing band LST_Night_1km
+
+Mosaic : processing band QC_Night
+
+Mosaic : processing band Night_view_time
+
+Mosaic : processing band Night_view_angl
+
+Mosaic : processing band Emis_31
+
+Mosaic : processing band Emis_32
+
+Mosaic : processing band Clear_sky_days
+
+Mosaic : processing band Clear_sky_nights
+
+Output mosaic image info
+------------------------
+output image corners (lat/lon):
+    UL:  50.000000000003 -140.015144417451 
+    UR:  50.000000000003 -77.786191343032 
+    LL:  30.000000000004 -103.923048454140 
+    LR:  30.000000000004 -57.735026918969 
+
+output image corners (X-Y projection units):
+    UL:  -10007554.677898999304 5559752.598833000287 
+    UR:  -5559752.598833000287 5559752.598833000287 
+    LL:  -10007554.677898999304 3335851.559299999848 
+    LR:  -5559752.598833000287 3335851.559299999848 
+
+     band               type lines smpls pixsiz      min    max   fill
+  1) LST_Day_1km      UINT16  2400  4800 926.6254   7500  65535      0
+  2) QC_Day            UINT8  2400  4800 926.6254      0    255      0
+  3) Day_view_time     UINT8  2400  4800 926.6254      0    240    255
+  4) Day_view_angl     UINT8  2400  4800 926.6254      0    130    255
+  5) LST_Night_1km    UINT16  2400  4800 926.6254   7500  65535      0
+  6) QC_Night          UINT8  2400  4800 926.6254      0    255      0
+  7) Night_view_time   UINT8  2400  4800 926.6254      0    240    255
+  8) Night_view_angl   UINT8  2400  4800 926.6254      0    130    255
+  9) Emis_31           UINT8  2400  4800 926.6254      1    255      0
+ 10) Emis_32           UINT8  2400  4800 926.6254      1    255      0
+ 11) Clear_sky_days    UINT8  2400  4800 926.6254      0    255      0
+ 12) Clear_sky_nights  UINT8  2400  4800 926.6254      0    255      0
+
+End Time:  Fri Sep 10 12:45:55 2010
+
+Finished mosaicking!
+
+******************************************************************************
+
+******************************************************************************
+
+MODIS Reprojection Tool (v4.0 February 2008)
+Start Time:  Fri Sep 10 12:46:22 2010
+
+------------------------------------------------------------------
+
+Error: ReadHDFHeader : Reading Input Header File
+     : No grid data found in D:\\Demo\\LST_NDVI\\LST_TIFF\\temphdf.hdf. The MRT only supports gridded HDF-EOS data, not swath or point HDF-EOS data. Use MRTSwath for processing MODIS swath products.

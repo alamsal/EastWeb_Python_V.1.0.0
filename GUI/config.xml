@@ -1,0 +1,169 @@
+<config> <!-- Starting of the configuration file -->
+	<lstndvi> <!-- Starting of the LST and NDVI block  -->
+		<area name="NGP"> <!-- Starting of the NGP area block-->
+			<type name="lst"> <!-- Starting of the  land surface temperature tag inside NGP area  --> 
+				<id>h09v04,h10v04,h11v04,h12v04,h09v05,h10v05,h11v05</id> <!-- Tiles to be downloaded  -->
+				<hostname>e4ftl01u.ecs.nasa.gov</hostname> <!-- FTP host name -->
+				<username>anonymous</username> <!-- FTP user name -->
+				<password>@anonymous</password> <!--FTP password  -->
+				<ftpdir>MOLT/MOD11A2.005</ftpdir> <!-- FTP directory to retrive files -->
+				<hdfdir>D:\\Demo\\LST_NDVI\\LST\\</hdfdir> <!-- Local directory to store *.HDF files -->
+				<tiffdir>D:\\Demo\\LST_NDVI\\LST_TIFF\\</tiffdir> <!-- Local directory to store *.TIFF files -->
+				<griddir>D:\\Demo\\LST_NDVI\\LST_GRID\\</griddir> <!-- Local directory to store GRID (raster) files -->
+				<tempdir>D:\\Demo\\LST_NDVI\\LST_TEMP\\</tempdir> <!--  Temporary path to hold temp files and variables -->
+				<logdir>D:\\Demo\\LST_NDVI\\LST_LOG\\</logdir> <!-- Dir to store log files and log information -->
+				<mosaictilenum>7</mosaictilenum> <!-- Total no. of tiles to be mosaic -->
+				<shpfile>D:\\MODIS_LST_NDVI\\NGP_AEA\\NGP_AEA.shp</shpfile> <!-- Shape file for Zonal stat  -->
+				<watermask>D:\\MODIS_LST_NDVI\\WaterMask\\rec_watermask</watermask> <!-- Location of watermask raster  -->
+				<zonalcsv>D:\\MODIS_LST_NDVI\\MOD11A2_Znal\\mod11a2_znal.csv</zonalcsv> <!-- Zonal stat  without Transposed CSV -->
+				<intermediatecsv>D:\\MODIS_LST_NDVI\\MOD11A2_Znal\\intermediate.csv</intermediatecsv> <!-- Intermediate Zonal CSV(exists temporaily) -->
+				<finalcsv>D:\\MODIS_LST_NDVI\\MOD11A2_Znal\\final.csv</finalcsv> <!-- Zonal stat with Transposed CSV -->	 
+				<prjfile>MODLST_ngp.prm</prjfile> <!-- Projection information file, should be kept in root directory  -->	
+				<inquery>INSERT INTO tbl_lst(year,day,zone,count,mean,stdev,sum) VALUES(%s,%s,%s,%s,%s,%s,%s)</inquery>
+				<outquery>SELECT year,day,zone,count,mean,stdev,sum FROM tbl_lst</outquery>
+				<transposedoutput>D:/Demo/LstZnalstat.csv</transposedoutput>				
+			</type>		
+			<type name="ndvi"> <!-- Starting of the  NDVI tag inside NGP area  --> 
+				<id>h09v04,h10v04,h11v04,h12v04,h09v05,h10v05,h11v05</id> 
+				<hostname>e4ftl01u.ecs.nasa.gov</hostname> 
+				<username>anonymous</username> 
+				<password>@anonymous</password> 
+				<ftpdir>MOTA/MCD43B4.005</ftpdir> 
+				<hdfdir>D:\\Demo\\LST_NDVI\\NDVI\\</hdfdir> 
+				<tiffdir>D:\\Demo\\LST_NDVI\\NDVI_TIFF\\</tiffdir> 
+				<griddir>D:\\Demo\\LST_NDVI\\NDVI_GRID\\</griddir> 
+				<tempdir>D:\\Demo\\LST_NDVI\\NDVI_TEMP\\</tempdir>	 		
+				<logdir>D:\\Demo\\LST_NDVI\\NDVI_LOG\\</logdir> 
+				<mosaictilenum>7</mosaictilenum>
+				<shpfile>D:\\MODIS_LST_NDVI\\NGP_AEA\\NGP_AEA.shp</shpfile> 
+				<watermask>D:\\MODIS_LST_NDVI\\WaterMask\\rec_watermask</watermask> 
+				<zonalcsv>D:\\MODIS_LST_NDVI\\MCD43B4_Znal\\MCD43B4.csv</zonalcsv> 
+				<intermediatecsv>D:\\MODIS_LST_NDVI\\MCD43B4_Znal\\intermediate.csv</intermediatecsv> 
+				<finalcsv>D:\\MODIS_LST_NDVI\\MCD43B4_Znal\\final.csv</finalcsv> 
+				<prjfile>MODLST_ngp.prm</prjfile> <!-- Projection information file, should be kept in root directory -->	
+				<inquery>INSERT INTO tbl_ndvi(year,day,zone,count,mean,stdev,sum) VALUES(%s,%s,%s,%s,%s,%s,%s)</inquery>
+				<outquery>SELECT year,day,zone,count,mean,stdev,sum FROM tbl_ndvi</outquery>
+				<transposedoutput>D:/Demo/NdviZnalstat.csv</transposedoutput>
+			</type>				
+		</area>
+		<area name="ETH"> <!-- Starting of the ETH area -->
+			<type name="lst">
+				<id>"h22v07,h22v08,h21v07,h21v08"</id>
+				<hostname>e4ftl01u.ecs.nasa.gov</hostname>
+				<username>anonymous</username>
+				<password>@anonymous</password>
+				<ftpdir>MOLT/MOD11A2.005</ftpdir>
+				<hdfdir>hdf1</hdfdir>
+				<tiffdir>tiff3</tiffdir>
+				<tempdir>temp3</tempdir>
+				<griddir>grid1</griddir>
+				<logdir>log3</logdir>
+				<mosaictilenum>35</mosaictilenum>
+				<shpfile>shp3</shpfile>
+				<watermask>mask3</watermask>
+				<prjfile>MODLST_eth.prm</prjfile>
+			</type>		
+			<type name="ndvi">
+				<id>h22v07,h22v08,h21v07,h21v08</id>
+				<hostname>e4ftl01u.ecs.nasa.gov</hostname>
+				<username>anonymous</username>
+				<password>@anonymous</password>
+				<ftpdir>MOTA/MCD43B4.005</ftpdir>
+				<hdfdir>hdf4</hdfdir>
+				<tiffdir>tiff4</tiffdir>
+				<griddir>grid2</griddir>
+				<tempdir>temp4</tempdir>
+				<logdir>log4</logdir>
+				<mosaictilenum>4</mosaictilenum>
+				<shpfile>shp4</shpfile>
+				<watermask>mask4</watermask>
+				<prjfile>MODLST_eth.prm</prjfile>	
+			</type>
+		</area>
+		<area name="CUSTOM"> <!-- Starting of the CUSTOM area -->
+			<type name="ndvi">
+				<id>"h22v07"</id>
+				<hostname>e4ftl01u.ecs.nasa.gov</hostname>
+				<username>anonymous</username>
+				<password>@anonymous</password>
+				<ftpdir>MOTA/MCD43B4.005</ftpdir>
+				<hdfdir>hdf1</hdfdir>
+				<tiffdir>tiff3</tiffdir>
+				<griddir>grid3</griddir>
+				<tempdir>temp3</tempdir>
+				<logdir>log3</logdir>
+				<mosaictilenum>35</mosaictilenum>
+				<shpfile>shp3</shpfile>
+				<watermask>mask3</watermask>
+				<prjfile></prjfile>
+			</type>		
+			<type name="lst">
+				<id>"h22v07"</id>
+				<hostname>e4ftl01u.ecs.nasa.gov</hostname>
+				<username>anonymous</username>
+				<password>@anonymous</password>
+				<ftpdir>MOLT/MOD11A2.005</ftpdir>
+				<hdfdir>hdf4</hdfdir>
+				<tiffdir>tiff4</tiffdir>
+				<griddir>grid4</griddir>
+				<tempdir>temp4</tempdir>
+				<logdir>log4</logdir>
+				<mosaictilenum>4</mosaictilenum>
+				<shpfile>shp4</shpfile>
+				<watermask>mask4</watermask>
+				<prjfile></prjfile>
+			</type>
+		</area>
+	</lstndvi>
+	<trmm> <!-- TRMM Information Block-->
+		<netcdfdir>D:\\MODIS_TRMM\\NetCDFile\\</netcdfdir> <!-- Dir to retrive Original NetCDF files -->
+		<griddir>D:\\Demo\\TRMM\\GRID\\</griddir> <!-- Dir to store Grid files -->
+		<logdir>D:\\Demo\\TRMM\\LOG\\</logdir> <!-- Temporary path to hold temp files and variables -->	
+		<shpfile>D:\\MODIS_TRMM\\ecoregions\\NGP_AEA.shp</shpfile> <!-- Shape file for Zonal stat -->
+		<workspace>D:\\MODIS_TRMM</workspace>
+		<zonalcsv>D:\\MODIS_TRMM\\TRMM_summary.csv</zonalcsv> <!-- Zonal stat  CSV without Transposed-->
+		<intermediatecsv>D:\\MODIS_TRMM\\TRMM_Intermediate.csv</intermediatecsv> <!-- Intermediate Zonal CSV(exists temporaily) -->
+		<finalcsv>D:\\MODIS_TRMM\\TRMM_Final.csv</finalcsv>	<!-- Zonal stat with Transposed CSV  -->
+		<inquery>INSERT INTO tbl_trmm(year,day,zone,count,mean,stdev,sum) VALUES(%s,%s,%s,%s,%s,%s,%s)</inquery>
+		<outquery>SELECT year,day,zone,count,mean,stdev,sum FROM tbl_trmm</outquery>
+		<transposedoutput>D:/Demo/TrmmZnalstat.csv</transposedoutput>
+	</trmm>
+	<eta>  <!-- ETa Information Block-->
+		<etorepjctdir>D:\\MODIS_ETa\\Data\\Eto_reproject\\</etorepjctdir> <!-- Dir to retrive reprojected ETo files -->
+		<etfdir>D:\\MODIS_ETa\\Output\\Etf\\2000\\</etfdir> <!-- Dir to retrive ETf files -->
+		<etadir>D:\\MODIS_ETa\\Data\\Eta\\</etadir> <!-- Dir to store ETa files -->
+		<logdir>D:\\Demo\\ETA\\LOG\\</logdir> <!-- Dir to store log files and log information -->
+		<shpfile>D:\\MODIS_LST_NDVI\\NGP_AEA\\NGP_AEA.shp</shpfile> <!-- Shape file for Zonal stat -->
+		<tempdir>D:\\Demo\\ETA\\TEMP\\</tempdir> <!-- Temporary path to hold temp files and variables -->		
+		<year>2002</year> 
+		<inquery>INSERT INTO tbl_eta(year,day,zone,count,mean,stdev,sum) VALUES(%s,%s,%s,%s,%s,%s,%s)</inquery>
+		<outquery>SELECT year,day,zone,count,mean,stdev,sum FROM tbl_eta</outquery>
+		<transposedoutput>D:/Demo/EtaZnalstat.csv</transposedoutput>
+	</eta>
+	<etf>  <!-- ETf Information Block-->
+		<etfdir>D:\\MODIS_ETa\\Output\\Etf\\2003\\</etfdir> <!-- Dir to store Etf Files -->
+		<tempdir>D:\\Demo\\ETA\\TEMP\\</tempdir> <!-- Temporary path to hold temp files and variables -->
+		<csvtable>D:\\MODIS_ETa\\Data\\tables\\ETf_2003.csv</csvtable> <!--Retrive yearly CSV for ETf computation  -->
+		<lstcdir>D:\\MODIS_ETa\\Data\\lstc\\2003\\lstc\\</lstcdir> <!-- Dir to retrive LSTC files -->
+		<logdir>D:\\Demo\\ETA\\LOG\\</logdir> <!-- Dir to store log files and log information -->
+		<year>2002</year>
+	</etf>
+	<eto> <!-- ETo Information Block-->
+		<dailyetodir>D:\\MODIS_ETa\\Data\\2008\\</dailyetodir> <!--Dir to retrive Daily ETo files -->
+		<compositedir>D:\\Demo\\ETA\\ETO_COMPOSITE\\</compositedir> <!-- Dir to retrive/store 8-day composite ETo files  -->
+		<reprojectdir>D:\\Demo\\ETA\\ETO_REPROJECT\\</reprojectdir> <!-- Dir to retrive/store AEA projected 8-day composite ETo files -->
+		<projection>C:\\Program Files (x86)\\ArcGIS\\Coordinate Systems\\Projected Coordinate Systems\\Continental\\North America\\North America Albers Equal Area Conic.prj</projection> <!--Location of projection information file -->
+		<datum>C:\\Program Files (x86)\\ArcGIS\\Coordinate Systems\\Geographic Coordinate Systems\\North America\North American Datum 1983.prj</datum> <!-- Location of datum information file  -->
+		<samplesize>1000000</samplesize> <!-- Raster re-sampling size, it should be in 1000x1000m sp. resolution, might have higher values for faster execution -->	
+		<logdir>D:\\Demo\\ETA\\LOG\\</logdir> <!-- Dir to store log files and log information -->
+		<tempdir1>D:\\Demo\\ETA\\TEMP1\\</tempdir1> <!-- Temporary path to hold temp files and variables -->	
+		<tempdir2>D:\\Demo\\ETA\\TEMP2\\</tempdir2> <!-- Temporary path to hold temp files and variables, especially for leap years -->	
+		<year>2002</year>		
+	</eto>
+	<database> <!-- Database Information Block-->
+		<host>localhost</host> <!-- Database host name or IP Address -->
+		<dbname>db_EastWeb</dbname> <!-- Database name -->
+		<user>postgres</user> <!-- Database user name -->
+		<password>eastweb1</password>  <!-- Database password -->	
+	</database>
+</config>
